@@ -3,14 +3,29 @@ import { TodosContext } from "../context/TodosContexts";
 const TodosList = () => {
   const { todos, setTodos } = useContext(TodosContext);
 
+  const handleCompletedChange = (todoId) => {
+    let newTodos = [...todos];
+    const index = todos.findIndex((element) => element.id === todoId);
+    newTodos[index] = {
+      ...newTodos[index],
+      isCompleted: !newTodos[index].isCompleted,
+    };
+    setTodos(newTodos);
+  };
+
   return (
     <div className="list-wrapper">
       <ul className="d-flex flex-column todo-list">
         {todos.map((todo) => (
-          <li key={todo.id} className={todo.isCompleted === "completed"}>
+          <li className={todo.isCompleted ? "completed" : ""} key={todo.id}>
             <div className="form-check">
               <label className="form-check-label">
-                <input className="checkbox" type="checkbox" />
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  checked={todo.isCompleted ? true : false}
+                  onChange={() => handleCompletedChange(todo.id)}
+                />
                 {todo.title}
                 <i className="input-helper"> </i>
               </label>
