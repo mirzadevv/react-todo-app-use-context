@@ -21,6 +21,7 @@ const TodosList = () => {
   return (
     <div className="list-wrapper">
       <ul className="d-flex flex-column todo-list">
+        {todos.length === 0 && <h4>There are no todos</h4>}
         {todos.map((todo) => (
           <li className={todo.isCompleted ? "completed" : ""} key={todo.id}>
             <div className="form-check">
