@@ -1,6 +1,7 @@
 import React from "react";
 import InputForm from "./InputForm";
 import TodosList from "./TodosList";
+import TodosProvider from "../context/TodosContexts";
 const TodoApp = () => {
   return (
     <div className="page-content page-container" id="page-content">
@@ -9,8 +10,10 @@ const TodoApp = () => {
           <div className="card px-3">
             <div className="card-body">
               <h4 className="card-title">Simple Todo list</h4>
-              <InputForm />
-              <TodosList />
+              <TodosProvider>
+                <InputForm />
+                <TodosList />
+              </TodosProvider>
             </div>
           </div>
         </div>
