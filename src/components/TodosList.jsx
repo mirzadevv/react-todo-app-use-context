@@ -13,6 +13,11 @@ const TodosList = () => {
     setTodos(newTodos);
   };
 
+  const handleDelete = (todoId) => {
+    const newTodos = [...todos];
+    setTodos(newTodos.filter((todo) => todo.id !== todoId));
+  };
+
   return (
     <div className="list-wrapper">
       <ul className="d-flex flex-column todo-list">
@@ -30,7 +35,10 @@ const TodosList = () => {
                 <i className="input-helper"> </i>
               </label>
             </div>
-            <i className="remove mdi mdi-close-circle-outline"></i>
+            <i
+              className="remove mdi mdi-close-circle-outline"
+              onClick={() => handleDelete(todo.id)}
+            ></i>
           </li>
         ))}
       </ul>
