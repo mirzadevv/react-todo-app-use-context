@@ -1,13 +1,13 @@
 import React from "react";
 const InputForm = () => {
   return (
-    <div class="add-items d-flex">
+    <div className="add-items d-flex">
       <input
         type="text"
-        class="form-control todo-list-input"
+        className="form-control todo-list-input"
         placeholder="What do you need to do today?"
       />
-      <button class="add btn btn-primary font-weight-bold todo-list-add-btn">
+      <button className="add btn btn-primary font-weight-bold todo-list-add-btn">
         Add
       </button>
     </div>
